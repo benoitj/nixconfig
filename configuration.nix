@@ -40,8 +40,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.windowManager.dwm.enable = true;
-  # start with: systemctl start display-manager.service
-  services.xserver.autorun = false;
+  services.xserver.autorun = true; # start with: systemctl start display-manager.service
   services.dwm-status.enable = true;
   services.dwm-status.order = ["battery" "network" "audio" "time"];
 
@@ -70,21 +69,20 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    st
-    rofi
-    gnumake
+    arandr
+    autorandr
+    dunst
     dwm-status
+    gnumake
+    gnupg
     mpc_cli
     pamixer
     pulsemixer
     ranger
-    arandr
-    autorandr
-    dunst
-    gnupg
-  #   firefox
+    rofi
+    st
+    vim
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
