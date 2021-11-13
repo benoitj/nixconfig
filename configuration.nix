@@ -83,6 +83,7 @@
     arandr
     autorandr
     dunst
+    gnupg
   #   firefox
   ];
 
