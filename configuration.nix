@@ -37,27 +37,6 @@
   #   keyMap = "us";
   # };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.windowManager.dwm.enable = true;
-  services.xserver.autorun = true; # start with: systemctl start display-manager.service
-  services.dwm-status.enable = true;
-  services.dwm-status.order = ["battery" "network" "audio" "time"];
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.mutableUsers = true;
   users.users.benoit = {
@@ -69,21 +48,22 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    arandr
-    autorandr
-    dunst
-    dwm-status
+    chezmoi
+    git
     gnumake
     gnupg
-    mpc_cli
-    pamixer
-    pulsemixer
     ranger
-    rofi
-    st
     vim
     wget
+    cachix
   ];
+
+  nix = {
+    binaryCaches = [ "https://nix-community.cachix.org/" ];
+    binaryCachePublicKeys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -104,32 +84,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-
-  nixpkgs.overlays = [
-    (self: super: {
-      dwm = super.dwm.overrideAttrs (oldAttrs: rec {
-       src = super.fetchFromGitHub {
-         owner = "benoitj";
-         repo = "dwm";
-         rev = "af08c7384f3fad6be5ba02d6fa678cb7914c33dd";
-         sha256 = "011pk4rh66ish179kc2qjl1dx2gs0q4c0wxp9c97aifi6ppawljm";
-       };
-      });
-    st = super.st.overrideAttrs (oldAttrs: rec {
-       src = super.fetchFromGitHub {
-         owner = "benoitj";
-         repo = "st";
-         rev = "main";
-         sha256 = "1kixba8bxkc1812mn4cik6865qazpm0wiv7484j8n97l2cyagq84";
-       };
-      });
-    })
-  ];
-
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
-  ];
- 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
