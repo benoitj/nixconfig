@@ -36,6 +36,7 @@
     cantarell-fonts
     cmake
     compton
+    dragon-drop
     dunst
     dwm-status
     emacsGcc
@@ -47,17 +48,22 @@
     gst_all_1.gst-plugins-ugly
     libtool
     libvterm-neovim
+    mate.mate-polkit
     mpc_cli
     pamixer
     pulsemixer
+    qutebrowser
     ranger
     rofi
     st
     unclutter
+    vivaldi-widevine
+    wmctrl
     xclip
+    xdg-user-dirs
+    xdotool
+    xsel
 
-#     "dex"
-#     "dragon-drop"
 #     "fontconfig"
 #     "font-adobe-source-code-pro"
 #     "font-dejavu"
