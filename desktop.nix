@@ -39,7 +39,8 @@
     dragon-drop
     dunst
     dwm-status
-    emacsGcc
+    #emacsGcc
+    firefox
     gcc
     gst_all_1.gstreamer
     gst_all_1.gst-plugins-base

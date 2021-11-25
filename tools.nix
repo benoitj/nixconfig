@@ -49,10 +49,10 @@
     maim
     gnumake
     maven
-    mpv
+    #mpv
     mupdf
     nix-bash-completions
-    nss-cacerts
+    #nss-cacerts
     jdk11
     pass
     plantuml
