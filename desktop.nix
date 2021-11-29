@@ -24,7 +24,7 @@
   hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = false;
 
   environment.systemPackages = with pkgs; [
     alsaPlugins 
@@ -47,6 +47,7 @@
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly
+    libnotify
     libtool
     libvterm-neovim
     mate.mate-polkit
