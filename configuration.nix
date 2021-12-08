@@ -44,7 +44,7 @@
   users.users.benoit = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "scanner" "lp"]; # Enable ‘sudo’ for the user.
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -93,6 +93,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "21.11"; # Did you read the comment?
 }
 

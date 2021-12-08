@@ -24,7 +24,9 @@
   hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = false;
+  services.xserver.libinput.enable = true;
+  services.xserver.libinput.touchpad.disableWhileTyping = true;
+  services.xserver.synaptics.enable = false;
 
   environment.systemPackages = with pkgs; [
     alsaPlugins 
@@ -54,12 +56,12 @@
     mpc_cli
     pamixer
     pulsemixer
-    qutebrowser
+    #qutebrowser
     ranger
     rofi
     st
     unclutter
-    vivaldi-widevine
+    #vivaldi-widevine
     wmctrl
     xclip
     xdg-user-dirs

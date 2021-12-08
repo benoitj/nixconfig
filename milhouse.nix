@@ -12,6 +12,10 @@
   ];
 
   services.pcscd.enable = true;
+  hardware.sane.enable = true;
+  hardware.sane.extraBackends = [ pkgs.sane-airscan ];
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
 
   programs = {
     ssh.startAgent = false;
