@@ -59,6 +59,8 @@
     vim
     wget
     cachix
+    networkmanager-openvpn
+    openvpn
   ];
 
   nix = {

@@ -67,6 +67,8 @@
     xdg-user-dirs
     xdotool
     xsel
+    brightnessctl
+    xorg.xev
 
 #     "fontconfig"
 #     "font-adobe-source-code-pro"
