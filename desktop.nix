@@ -17,7 +17,7 @@
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
@@ -25,7 +25,7 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
-  services.xserver.libinput.touchpad.disableWhileTyping = true;
+#  services.xserver.libinput.touchpad.disableWhileTyping = true;
   services.xserver.synaptics.enable = false;
 
   environment.systemPackages = with pkgs; [
@@ -40,6 +40,7 @@
     compton
     dragon-drop
     dunst
+    dwm
     dwm-status
     #emacsGcc
     firefox

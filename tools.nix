@@ -20,6 +20,7 @@
     cargo
     chezmoi
     clang
+    clj-kondo
     clojure
     cmake
     cowsay
@@ -77,4 +78,7 @@
      #zathura-djvu
 
   ];
+
+  virtualisation.docker.enable = true;
+
 }

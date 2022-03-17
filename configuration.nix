@@ -2,13 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    /etc/nixos/hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -28,6 +27,11 @@
   networking.interfaces.enp0s25.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
 
+  services.gvfs = {
+    enable = true;
+    package = lib.mkForce pkgs.gnome3.gvfs;
+  };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -44,7 +48,8 @@
   users.users.benoit = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "wheel" "scanner" "lp"]; # Enable ‘sudo’ for the user.
+    extraGroups =
+      [ "wheel" "scanner" "lp" "docker" ]; # Enable ‘sudo’ for the user.
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -61,11 +66,12 @@
     cachix
     networkmanager-openvpn
     openvpn
+    lxqt.lxqt-policykit
   ];
 
   nix = {
-    binaryCaches = [ "https://nix-community.cachix.org/" ];
-    binaryCachePublicKeys = [
+    settings.substituters = [ "https://nix-community.cachix.org/" ];
+    settings.trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
