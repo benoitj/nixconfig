@@ -1,4 +1,6 @@
-all:
+all: upgrade
+
+switch:
 	sudo nixos-rebuild -I nixos-config=./milhouse.nix switch
 
 upgrade:
