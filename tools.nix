@@ -73,7 +73,7 @@
     w3m
     wget
     wordnet
-    zathura
+#    zathura
      #zathura-pdf-mupdf
      #zathura-djvu
 
